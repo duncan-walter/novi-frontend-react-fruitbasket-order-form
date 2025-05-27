@@ -3,6 +3,13 @@ import { useState } from 'react';
 import FruitCounter from "./components/FruitCounter.jsx";
 
 function App() {
+  function resetAmounts() {
+    setStrawBerryAmountState(0);
+    setBananaAmountState(0);
+    setAppleAmountState(0);
+    setKiwiAmountState(0);
+  }
+
   const [strawBerryAmountState, setStrawBerryAmountState] = useState(0);
   const [bananaAmountState, setBananaAmountState] = useState(0);
   const [appleAmountState, setAppleAmountState] = useState(0);
@@ -30,6 +37,7 @@ function App() {
       state={kiwiAmountState}
       setState={setKiwiAmountState}
     />
+    <button type="button" onClick={resetAmounts}>Reset</button>
   </>)
 }
 

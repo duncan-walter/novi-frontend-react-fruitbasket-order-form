@@ -10,9 +10,19 @@ function FruitCounter({title, state, setState}) {
   return (
     <div>
       <span>{title}</span>
-      <button onClick={() => { handleFruitAmountMutation(state, setState, -1)}}>-</button>
+      <button
+        type="button"
+        onClick={() => { handleFruitAmountMutation(state, setState, -1)}}
+      >
+        -
+      </button>
       <span>{state}</span>
-      <button onClick={() => { handleFruitAmountMutation(state, setState, 1)}}>+</button>
+      <button
+        type="button"
+        onClick={() => { handleFruitAmountMutation(state, setState, 1)}}
+      >
+        +
+      </button>
     </div>
   );
 }
