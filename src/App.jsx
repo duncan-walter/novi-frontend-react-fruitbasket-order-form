@@ -20,7 +20,7 @@ function App() {
     console.log(`Apple count: ${appleAmountState}`);
     console.log(`Kiwi count: ${kiwiAmountState}`);
 
-    // Dit lijkt mij een nogal omslachtige manier om de values te loggen, maar het is wat het is voor nu.
+    // Dit lijkt mij een nogal omslachtige manier om de values te loggen, maar het is wat het is voor nu zonder state.
     const form = e.target;
     console.log(`Firstname: ${form.querySelector('input[name="firstname"]').value}`);
     console.log(`Lastname: ${form.querySelector('input[name="lastname"]').value}`);
@@ -36,6 +36,15 @@ function App() {
   const [bananaAmountState, setBananaAmountState] = useState(0);
   const [appleAmountState, setAppleAmountState] = useState(0);
   const [kiwiAmountState, setKiwiAmountState] = useState(0);
+
+  const [firstnameState, setFirstnameState] = useState("");
+  const [lastnameState, setLastnameState] = useState("");
+  const [ageState, setAgeState] = useState(0);
+  const [zipcodeState, setZipcodeState] = useState("");
+  const [deliveryFrequencyState, setDeliveryFrequencyState] = useState("every-week");
+  const [deliveryWindowState, setDeliveryWindowState] = useState("day-time");
+  const [remarksState, setRemarksState] = useState("");
+  const [consentState, setConsentState] = useState(false);
 
   return (<>
     <h1>Fruitmand bezorgservice</h1>
@@ -66,27 +75,27 @@ function App() {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="firstname">Voornaam:</label>
-        <input type="text" name="firstname" id="firstname"/>
+        <input type="text" name="firstname" id="firstname" value={firstnameState} onChange={(e) => setFirstnameState(e.target.value)}/>
       </div>
 
       <div>
         <label htmlFor="lastname">Achternaam:</label>
-        <input type="text" name="lastname" id="lastname"/>
+        <input type="text" name="lastname" id="lastname" value={lastnameState} onChange={(e) => setLastnameState(e.target.value)}/>
       </div>
 
       <div>
         <label htmlFor="age">Leeftijd:</label>
-        <input type="text" name="age" id="age"/>
+        <input type="text" name="age" id="age" value={ageState} onChange={(e) => setAgeState(parseInt(e.target.value))}/>
       </div>
 
       <div>
         <label htmlFor="zipcode">Postcode:</label>
-        <input type="text" name="zipcode" id="zipcode"/>
+        <input type="text" name="zipcode" id="zipcode" value={zipcodeState} onChange={(e) => setZipcodeState(e.target.value)}/>
       </div>
 
       <div>
         <label htmlFor="delivery-frequeny">Bezorgfrequentie:</label>
-        <select name="delivery-frequency" id="delivery-frequency">
+        <select name="delivery-frequency" id="delivery-frequency" value={deliveryFrequencyState} onChange={(e) => setDeliveryFrequencyState(e.target.value)}>
           <option value="every-week">Iedere week</option>
           <option value="every-other-week">Om de week</option>
           <option value="every-month">Iedere maand</option>
@@ -98,20 +107,20 @@ function App() {
           <legend>Bezorgmoment</legend>
 
           <label htmlFor="day-time">Overdag</label>
-          <input type="radio" name="delivery-window" id="day-time" value="day-time" checked/>
+          <input type="radio" name="delivery-window" id="day-time" value="day-time" checked={deliveryWindowState === "day-time"} onChange={(e) => setDeliveryWindowState(e.target.value)}/>
 
           <label htmlFor="night-time">&apos;s Avonds</label>
-          <input type="radio" name="delivery-window" id="night-time" value="night-time"/>
+          <input type="radio" name="delivery-window" id="night-time" value="night-time" checked={deliveryWindowState === "night-time"} onChange={(e) => setDeliveryWindowState(e.target.value)}/>
         </fieldset>
       </div>
 
       <div>
         <label htmlFor="remarks">Opmerking</label>
-        <textarea name="remarks" id="remarks" cols="30" rows="10"></textarea>
+        <textarea name="remarks" id="remarks" cols="30" rows="10" value={remarksState} onChange={(e) => setRemarksState(e.target.value)}></textarea>
       </div>
       
       <div>
-        <input type="checkbox" name="consent" id="consent"/>
+        <input type="checkbox" name="consent" id="consent" checked={consentState} onChange={(e) => setConsentState(e.target.checked)}/>
         <label htmlFor="consent">Ik ga akkoord met de voorwaarden</label>
       </div>
 
