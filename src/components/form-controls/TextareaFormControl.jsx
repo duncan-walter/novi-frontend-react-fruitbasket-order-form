@@ -2,7 +2,7 @@ import './TextareaFormControl.css';
 
 function TextareaFormControl({label, name, state, setState}) {
   function handleOnChange(e) {
-    setState(e.target.value);
+    setState(e);
   }
 
   return (<>

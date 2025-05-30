@@ -28,24 +28,33 @@ function App() {
     })
   }
 
+  function handleFormChange(e) {
+    const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
+    setFormState({
+      ...formState,
+      [e.target.name]: value
+    })
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
+    console.log("\n\n%cFruit basket:", "font-weight: bold; text-decoration: underline")
     console.log(`Strawberry count: ${fruitBasketState.strawBerry}`);
     console.log(`Banana count: ${fruitBasketState.banana}`);
     console.log(`Apple count: ${fruitBasketState.apple}`);
     console.log(`Kiwi count: ${fruitBasketState.kiwi}`);
 
-    // Dit lijkt mij een nogal omslachtige manier om de values te loggen, maar het is wat het is voor nu zonder state.
-    const form = e.target;
-    console.log(`Firstname: ${form.querySelector('input[name="firstname"]').value}`);
-    console.log(`Lastname: ${form.querySelector('input[name="lastname"]').value}`);
-    console.log(`Age: ${form.querySelector('input[name="age"]').value}`);
-    console.log(`Zipcode: ${form.querySelector('input[name="zipcode"]').value}`);
-    console.log(`Delivery frequency: ${form.querySelector('select[name="delivery-frequency"]').value}`);
-    console.log(`Delivery window: ${e.target.querySelector('input[name="delivery-window"]:checked').value}`);
-    console.log(`Remarks: ${form.querySelector('textarea[name="remarks"]').value}`);
-    console.log(`Consent: ${form.querySelector('input[name="consent"]').checked}`);
+    console.log("\n\n%cForm values:", "font-weight: bold; text-decoration: underline")
+    console.log(`Firstname: ${formState.firstName}`);
+    console.log(`Lastname: ${formState.lastName}`);
+    console.log(`Age: ${formState.age}`);
+    console.log(`Zipcode: ${formState.zipcode}`);
+    console.log(`Delivery frequency: ${formState.deliveryFrequency}`);
+    console.log(`Delivery window: ${formState.deliveryWindow}`);
+    console.log(`Remarks: ${formState.remarks}`);
+    console.log(`Consent: ${formState.consent}`);
   }
 
   const [fruitBasketState, setFruitBasketState] = useState({
@@ -55,14 +64,16 @@ function App() {
     kiwi: 0
   });
 
-  const [firstnameState, setFirstnameState] = useState("");
-  const [lastnameState, setLastnameState] = useState("");
-  const [ageState, setAgeState] = useState(0);
-  const [zipcodeState, setZipcodeState] = useState("");
-  const [deliveryFrequencyState, setDeliveryFrequencyState] = useState("every-week");
-  const [deliveryWindowState, setDeliveryWindowState] = useState("day-time");
-  const [remarksState, setRemarksState] = useState("");
-  const [consentState, setConsentState] = useState(false);
+  const [formState, setFormState] = useState({
+    firstName: "",
+    lastName: "",
+    age: "",
+    zipcode: "",
+    deliveryFrequency: "every-week",
+    deliveryWindow: "day-time",
+    remarks: "",
+    consent: false
+  });
 
   return (<>
     <h1>Fruitmand bezorgservice</h1>
@@ -102,37 +113,37 @@ function App() {
     <form onSubmit={handleSubmit}>
       <TextFormControl
         label="Voornaam"
-        name="firstname"
-        state={firstnameState}
-        setState={setFirstnameState}
+        name="firstName"
+        state={formState.firstName}
+        setState={handleFormChange}
       />
 
       <TextFormControl
         label="Achternaam"
-        name="lastname"
-        state={lastnameState}
-        setState={setLastnameState}
+        name="lastName"
+        state={formState.lastName}
+        setState={handleFormChange}
       />
 
       <TextFormControl
         label="Leeftijd"
         name="age"
-        state={ageState}
-        setState={setAgeState}
+        state={formState.age}
+        setState={handleFormChange}
       />
 
       <TextFormControl
         label="Postcode"
         name="zipcode"
-        state={zipcodeState}
-        setState={setZipcodeState}
+        state={formState.zipcode}
+        setState={handleFormChange}
       />
 
       <SelectFormControl
         label="Bezorgfrequentie"
-        name="delivery-frequency"
-        state={deliveryFrequencyState}
-        setState={setDeliveryFrequencyState}
+        name="deliveryFrequency"
+        state={formState.deliveryFrequency}
+        setState={handleFormChange}
         options={[
           {value: "every-week", label: "Iedere week"},
           {value: "every-other-week", label: "Om de week"},
@@ -142,9 +153,9 @@ function App() {
 
       <RadioButtonGroupFormControl
         label="Bezorgmoment"
-        name="delivery-window"
-        state={deliveryWindowState}
-        setState={setDeliveryWindowState}
+        name="deliveryWindow"
+        state={formState.deliveryWindow}
+        setState={handleFormChange}
         options={[
           {id: "day-time", value: "day-time", label: "Overdag"},
           {id: "night-time", value: "night-time", label: "'s Avonds"},
@@ -154,15 +165,15 @@ function App() {
       <TextareaFormControl
         label="Opmerking"
         name="remarks"
-        state={remarksState}
-        setState={setRemarksState}
+        state={formState.remarks}
+        setState={handleFormChange}
       />
 
       <CheckboxFormControl
         label="Ik ga akkoord met de voorwaarden"
         name="consent"
-        state={consentState}
-        setState={setConsentState}
+        state={formState.consent}
+        setState={handleFormChange}
       />
 
       <Button text="Verzend" type="submit"/>

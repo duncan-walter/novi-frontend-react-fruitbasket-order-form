@@ -2,7 +2,7 @@ import './CheckboxFormControl.css';
 
 function CheckboxFormControl({label, name, state, setState}) {
   function handleOnChange(e) {
-    setState(e.target.checked);
+    setState(e);
   }
 
   return (<>

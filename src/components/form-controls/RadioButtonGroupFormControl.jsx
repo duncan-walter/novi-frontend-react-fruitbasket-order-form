@@ -2,7 +2,7 @@ import './RadioButtonGroupFormControl.css';
 
 function RadioButtonGroupFormControl({label, name, state, setState, options}) {
   function handleOnChange(e) {
-    setState(e.target.value);
+    setState(e);
   }
 
   return (<>

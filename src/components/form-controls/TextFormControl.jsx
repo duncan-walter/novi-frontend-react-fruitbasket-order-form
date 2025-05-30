@@ -2,7 +2,7 @@ import './TextFormControl.css';
 
 function TextFormControl({label, name, state, setState}) {
   function handleOnChange(e) {
-    setState(e.target.value);
+    setState(e);
   }
 
   return (<>
