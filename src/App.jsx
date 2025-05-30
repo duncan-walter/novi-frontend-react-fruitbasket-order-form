@@ -8,6 +8,7 @@ import FruitCounter from './components/FruitCounter.jsx';
 import TextFormControl from "./components/form-controls/TextFormControl.jsx";
 import SelectFormControl from "./components/form-controls/SelectFormControl.jsx";
 import RadioButtonGroupFormControl from "./components/form-controls/RadioButtonGroupFormControl.jsx";
+import TextareaFormControl from "./components/form-controls/TextareaFormControl.jsx";
 
 function App() {
   function resetAmounts() {
@@ -129,10 +130,12 @@ function App() {
         ]}
       />
 
-      <div>
-        <label htmlFor="remarks">Opmerking</label>
-        <textarea name="remarks" id="remarks" cols="30" rows="10" value={remarksState} onChange={(e) => setRemarksState(e.target.value)}></textarea>
-      </div>
+      <TextareaFormControl
+        label="Opmerking"
+        name="remarks"
+        state={remarksState}
+        setState={setRemarksState}
+      />
       
       <div>
         <input type="checkbox" name="consent" id="consent" checked={consentState} onChange={(e) => setConsentState(e.target.checked)}/>
