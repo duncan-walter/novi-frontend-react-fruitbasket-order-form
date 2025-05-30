@@ -9,6 +9,7 @@ import TextFormControl from "./components/form-controls/TextFormControl.jsx";
 import SelectFormControl from "./components/form-controls/SelectFormControl.jsx";
 import RadioButtonGroupFormControl from "./components/form-controls/RadioButtonGroupFormControl.jsx";
 import TextareaFormControl from "./components/form-controls/TextareaFormControl.jsx";
+import CheckboxFormControl from "./components/form-controls/CheckboxFormControl.jsx";
 
 function App() {
   function resetAmounts() {
@@ -136,11 +137,13 @@ function App() {
         state={remarksState}
         setState={setRemarksState}
       />
-      
-      <div>
-        <input type="checkbox" name="consent" id="consent" checked={consentState} onChange={(e) => setConsentState(e.target.checked)}/>
-        <label htmlFor="consent">Ik ga akkoord met de voorwaarden</label>
-      </div>
+
+      <CheckboxFormControl
+        label="Ik ga akkoord met de voorwaarden"
+        name="consent"
+        state={consentState}
+        setState={setConsentState}
+      />
 
       <Button text="Verzend" type="submit"/>
     </form>
