@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Button from './components/Button.jsx';
 import FruitCounter from './components/FruitCounter.jsx';
 import TextFormControl from "./components/form-controls/TextFormControl.jsx";
+import SelectFormControl from "./components/form-controls/SelectFormControl.jsx";
 
 function App() {
   function resetAmounts() {
@@ -104,14 +105,17 @@ function App() {
         setState={setZipcodeState}
       />
 
-      <div>
-        <label htmlFor="delivery-frequeny">Bezorgfrequentie:</label>
-        <select name="delivery-frequency" id="delivery-frequency" value={deliveryFrequencyState} onChange={(e) => setDeliveryFrequencyState(e.target.value)}>
-          <option value="every-week">Iedere week</option>
-          <option value="every-other-week">Om de week</option>
-          <option value="every-month">Iedere maand</option>
-        </select>
-      </div>
+      <SelectFormControl
+        label="Bezorgfrequentie"
+        name="delivery-frequency"
+        state={deliveryFrequencyState}
+        setState={setDeliveryFrequencyState}
+        options={[
+          {value: "every-week", label: "Iedere week"},
+          {value: "every-other-week", label: "Om de week"},
+          {value: "every-month", label: "Iedere maand"}
+        ]}
+      />
 
       <div>
         <fieldset>
@@ -137,7 +141,7 @@ function App() {
 
       <Button text="Verzend" type="submit"/>
     </form>
-  </>)
+  </>);
 }
 
 export default App

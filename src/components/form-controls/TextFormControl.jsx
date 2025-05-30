@@ -15,7 +15,7 @@ function TextFormControl({label, name, state, setState}) {
         value={state}
         onChange={handleOnChange}/>
     </div>
-  </>)
+  </>);
 }
 
 export default TextFormControl;

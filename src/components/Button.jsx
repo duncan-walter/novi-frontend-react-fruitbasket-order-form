@@ -9,7 +9,7 @@ function Button({text, type = "button", action = () => {}}) {
     >
       {text}
     </button>
-  </>)
+  </>);
 }
 
 export default Button;
