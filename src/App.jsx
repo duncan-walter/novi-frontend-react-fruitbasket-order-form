@@ -1,8 +1,10 @@
-import './App.css'
+import './App.css';
 // Voor deze opdracht heb ik er voor gekozen om "useState" van React zelf te gebruiken om de basis goed onder de knie te krijgen.
 // In de toekomst stap ik over op React Form Hook.
 import { useState } from 'react';
-import FruitCounter from "./components/FruitCounter.jsx";
+
+import Button from './components/Button.jsx';
+import FruitCounter from './components/FruitCounter.jsx';
 
 function App() {
   function resetAmounts() {
@@ -70,7 +72,7 @@ function App() {
       setState={setKiwiAmountState}
     />
 
-    <button type="button" onClick={resetAmounts}>Reset</button>
+    <Button text="Reset" type="button" action={resetAmounts}/>
 
     <form onSubmit={handleSubmit}>
       <div>
@@ -124,7 +126,7 @@ function App() {
         <label htmlFor="consent">Ik ga akkoord met de voorwaarden</label>
       </div>
 
-      <button type="submit">Verzend</button>
+      <Button text="Verzend" type="submit"/>
     </form>
   </>)
 }
