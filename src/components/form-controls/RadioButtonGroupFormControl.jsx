@@ -11,7 +11,7 @@ function RadioButtonGroupFormControl({label, name, state, setState, options}) {
       <fieldset>
         <legend>{label}</legend>
         {options.map(option => {
-          // Ik kon het key attribuut niet op een normale fragment (<></>) plaatsen dus had ik opgezocht hoe het dan moest:
+          // Ik kon het key attribuut niet op een normaal fragment (<></>) plaatsen dus had ik opgezocht hoe het dan moest:
           return (<React.Fragment key={option.id}>
             <label htmlFor={option.id}>{option.label}</label>
             <input

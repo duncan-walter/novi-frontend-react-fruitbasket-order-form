@@ -4,6 +4,7 @@ import './Button.css';
 function Button({text, type = "button", action = () => {}}) {
   return (<>
     <button
+      className="button-base"
       type={type}
       onClick={action}
     >

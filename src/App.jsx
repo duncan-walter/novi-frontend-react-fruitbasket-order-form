@@ -61,16 +61,19 @@ function App() {
       state={strawBerryAmountState}
       setState={setStrawBerryAmountState}
     />
+
     <FruitCounter
       title="🍌 Bananen"
       state={bananaAmountState}
       setState={setBananaAmountState}
     />
+
     <FruitCounter
       title="🍏 Appels"
       state={appleAmountState}
       setState={setAppleAmountState}
     />
+
     <FruitCounter
       title="🥝 Kiwi's"
       state={kiwiAmountState}
