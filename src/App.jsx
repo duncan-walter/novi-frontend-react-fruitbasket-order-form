@@ -12,20 +12,29 @@ import TextareaFormControl from "./components/form-controls/TextareaFormControl.
 import CheckboxFormControl from "./components/form-controls/CheckboxFormControl.jsx";
 
 function App() {
-  function resetAmounts() {
-    setStrawBerryAmountState(0);
-    setBananaAmountState(0);
-    setAppleAmountState(0);
-    setKiwiAmountState(0);
+  function resetFruitBasket() {
+    setFruitBasketState({
+      strawBerry: 0,
+      banana: 0,
+      apple: 0,
+      kiwi: 0
+    })
+  }
+
+  function handleFruitBasketChange(name, value) {
+    setFruitBasketState({
+      ...fruitBasketState,
+      [name]: value
+    })
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(`Strawberry count: ${strawBerryAmountState}`);
-    console.log(`Banana count: ${bananaAmountState}`);
-    console.log(`Apple count: ${appleAmountState}`);
-    console.log(`Kiwi count: ${kiwiAmountState}`);
+    console.log(`Strawberry count: ${fruitBasketState.strawBerry}`);
+    console.log(`Banana count: ${fruitBasketState.banana}`);
+    console.log(`Apple count: ${fruitBasketState.apple}`);
+    console.log(`Kiwi count: ${fruitBasketState.kiwi}`);
 
     // Dit lijkt mij een nogal omslachtige manier om de values te loggen, maar het is wat het is voor nu zonder state.
     const form = e.target;
@@ -39,10 +48,12 @@ function App() {
     console.log(`Consent: ${form.querySelector('input[name="consent"]').checked}`);
   }
 
-  const [strawBerryAmountState, setStrawBerryAmountState] = useState(0);
-  const [bananaAmountState, setBananaAmountState] = useState(0);
-  const [appleAmountState, setAppleAmountState] = useState(0);
-  const [kiwiAmountState, setKiwiAmountState] = useState(0);
+  const [fruitBasketState, setFruitBasketState] = useState({
+    strawBerry: 0,
+    banana: 0,
+    apple: 0,
+    kiwi: 0
+  });
 
   const [firstnameState, setFirstnameState] = useState("");
   const [lastnameState, setLastnameState] = useState("");
@@ -59,29 +70,33 @@ function App() {
     <div className="fruit-counters">
       <FruitCounter
         title="🍓 Aardbeien"
-        state={strawBerryAmountState}
-        setState={setStrawBerryAmountState}
+        state={fruitBasketState.strawBerry}
+        setState={handleFruitBasketChange}
+        name="strawBerry"
       />
 
       <FruitCounter
         title="🍌 Bananen"
-        state={bananaAmountState}
-        setState={setBananaAmountState}
+        state={fruitBasketState.banana}
+        setState={handleFruitBasketChange}
+        name="banana"
       />
 
       <FruitCounter
         title="🍏 Appels"
-        state={appleAmountState}
-        setState={setAppleAmountState}
+        state={fruitBasketState.apple}
+        setState={handleFruitBasketChange}
+        name="apple"
       />
 
       <FruitCounter
         title="🥝 Kiwi's"
-        state={kiwiAmountState}
-        setState={setKiwiAmountState}
+        state={fruitBasketState.kiwi}
+        setState={handleFruitBasketChange}
+        name="kiwi"
       />
 
-      <Button text="Reset" type="button" action={resetAmounts}/>
+      <Button text="Reset" type="button" action={resetFruitBasket}/>
     </div>
 
     <form onSubmit={handleSubmit}>

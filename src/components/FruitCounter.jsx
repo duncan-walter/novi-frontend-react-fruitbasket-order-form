@@ -2,7 +2,7 @@ import './FruitCounter.css';
 
 import Button from './Button.jsx';
 
-function FruitCounter({title, state, setState}) {
+function FruitCounter({title, state, setState, name}) {
   const increaseAmount = 1;
   const decreaseAmount = -1;
   const minimumAmount = 0;
@@ -17,9 +17,9 @@ function FruitCounter({title, state, setState}) {
 
   function handleFruitAmountMutation(state, setState, mutationAmount) {
     if (state + mutationAmount > minimumAmount - 1) {
-      setState(state + mutationAmount);
+      setState(name, state + mutationAmount);
     } else {
-      setState(minimumAmount);
+      setState(name, minimumAmount);
     }
   }
 
