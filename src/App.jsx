@@ -7,6 +7,7 @@ import Button from './components/Button.jsx';
 import FruitCounter from './components/FruitCounter.jsx';
 import TextFormControl from "./components/form-controls/TextFormControl.jsx";
 import SelectFormControl from "./components/form-controls/SelectFormControl.jsx";
+import RadioButtonGroupFormControl from "./components/form-controls/RadioButtonGroupFormControl.jsx";
 
 function App() {
   function resetAmounts() {
@@ -117,17 +118,16 @@ function App() {
         ]}
       />
 
-      <div>
-        <fieldset>
-          <legend>Bezorgmoment</legend>
-
-          <label htmlFor="day-time">Overdag</label>
-          <input type="radio" name="delivery-window" id="day-time" value="day-time" checked={deliveryWindowState === "day-time"} onChange={(e) => setDeliveryWindowState(e.target.value)}/>
-
-          <label htmlFor="night-time">&apos;s Avonds</label>
-          <input type="radio" name="delivery-window" id="night-time" value="night-time" checked={deliveryWindowState === "night-time"} onChange={(e) => setDeliveryWindowState(e.target.value)}/>
-        </fieldset>
-      </div>
+      <RadioButtonGroupFormControl
+        label="Bezorgmoment"
+        name="delivery-window"
+        state={deliveryWindowState}
+        setState={setDeliveryWindowState}
+        options={[
+          {id: "day-time", value: "day-time", label: "Overdag"},
+          {id: "night-time", value: "night-time", label: "'s Avonds"},
+        ]}
+      />
 
       <div>
         <label htmlFor="remarks">Opmerking</label>
