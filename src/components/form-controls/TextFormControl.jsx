@@ -5,8 +5,8 @@ function TextFormControl({label, name, state, setState}) {
     setState(e.target.value);
   }
 
-  return(<>
-    <div>
+  return (<>
+    <div className="form-control">
       <label htmlFor={name}>{label}:</label>
       <input
         type="text"

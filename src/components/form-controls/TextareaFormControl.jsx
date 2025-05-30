@@ -6,7 +6,7 @@ function TextareaFormControl({label, name, state, setState}) {
   }
 
   return (<>
-    <div>
+    <div className="form-control">
       <label htmlFor={name}>{label}</label>
       <textarea
         name={name}

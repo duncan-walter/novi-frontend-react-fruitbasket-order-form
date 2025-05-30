@@ -6,7 +6,7 @@ function CheckboxFormControl({label, name, state, setState}) {
   }
 
   return (<>
-    <div>
+    <div className="form-control">
       <input
         type="checkbox"
         name={name}

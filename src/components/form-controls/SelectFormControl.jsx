@@ -6,7 +6,7 @@ function SelectFormControl({label, name, state, setState, options}) {
   }
 
   return (<>
-    <div>
+    <div className="form-control">
       <label htmlFor={name}>{label}:</label>
       <select
         name={name}
