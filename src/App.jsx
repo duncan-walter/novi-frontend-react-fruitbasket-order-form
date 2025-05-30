@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import Button from './components/Button.jsx';
 import FruitCounter from './components/FruitCounter.jsx';
+import TextFormControl from "./components/form-controls/TextFormControl.jsx";
 
 function App() {
   function resetAmounts() {
@@ -75,25 +76,33 @@ function App() {
     <Button text="Reset" type="button" action={resetAmounts}/>
 
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="firstname">Voornaam:</label>
-        <input type="text" name="firstname" id="firstname" value={firstnameState} onChange={(e) => setFirstnameState(e.target.value)}/>
-      </div>
+      <TextFormControl
+        label="Voornaam"
+        name="firstname"
+        state={firstnameState}
+        setState={setFirstnameState}
+      />
 
-      <div>
-        <label htmlFor="lastname">Achternaam:</label>
-        <input type="text" name="lastname" id="lastname" value={lastnameState} onChange={(e) => setLastnameState(e.target.value)}/>
-      </div>
+      <TextFormControl
+        label="Achternaam"
+        name="lastname"
+        state={lastnameState}
+        setState={setLastnameState}
+      />
 
-      <div>
-        <label htmlFor="age">Leeftijd:</label>
-        <input type="text" name="age" id="age" value={ageState} onChange={(e) => setAgeState(parseInt(e.target.value))}/>
-      </div>
+      <TextFormControl
+        label="Leeftijd"
+        name="age"
+        state={ageState}
+        setState={setAgeState}
+      />
 
-      <div>
-        <label htmlFor="zipcode">Postcode:</label>
-        <input type="text" name="zipcode" id="zipcode" value={zipcodeState} onChange={(e) => setZipcodeState(e.target.value)}/>
-      </div>
+      <TextFormControl
+        label="Postcode"
+        name="zipcode"
+        state={zipcodeState}
+        setState={setZipcodeState}
+      />
 
       <div>
         <label htmlFor="delivery-frequeny">Bezorgfrequentie:</label>
