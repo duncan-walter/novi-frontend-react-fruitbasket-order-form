@@ -1,0 +1,17 @@
+.fruit-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.fruit-counter-title {
+    margin: 0 1em 0 0;
+}
+
+.fruit-counter-amount {
+    padding: 0 .5em;
+}

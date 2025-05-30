@@ -24,10 +24,10 @@ function FruitCounter({title, state, setState}) {
   }
 
   return (
-    <div>
-      <span>{title}</span>
+    <div className="fruit-counter">
+      <span className="fruit-counter-title">{title}</span>
       <Button text="-" type="button" action={decreaseFruitAmount}/>
-      <span>{state}</span>
+      <span className="fruit-counter-amount">{state}</span>
       <Button text="+" type="button" action={increaseFruitAmount}/>
     </div>
   );

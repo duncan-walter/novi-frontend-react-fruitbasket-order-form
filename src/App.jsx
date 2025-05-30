@@ -56,31 +56,33 @@ function App() {
   return (<>
     <h1>Fruitmand bezorgservice</h1>
 
-    <FruitCounter
-      title="🍓 Aardbeien"
-      state={strawBerryAmountState}
-      setState={setStrawBerryAmountState}
-    />
+    <div className="fruit-counters">
+      <FruitCounter
+        title="🍓 Aardbeien"
+        state={strawBerryAmountState}
+        setState={setStrawBerryAmountState}
+      />
 
-    <FruitCounter
-      title="🍌 Bananen"
-      state={bananaAmountState}
-      setState={setBananaAmountState}
-    />
+      <FruitCounter
+        title="🍌 Bananen"
+        state={bananaAmountState}
+        setState={setBananaAmountState}
+      />
 
-    <FruitCounter
-      title="🍏 Appels"
-      state={appleAmountState}
-      setState={setAppleAmountState}
-    />
+      <FruitCounter
+        title="🍏 Appels"
+        state={appleAmountState}
+        setState={setAppleAmountState}
+      />
 
-    <FruitCounter
-      title="🥝 Kiwi's"
-      state={kiwiAmountState}
-      setState={setKiwiAmountState}
-    />
+      <FruitCounter
+        title="🥝 Kiwi's"
+        state={kiwiAmountState}
+        setState={setKiwiAmountState}
+      />
 
-    <Button text="Reset" type="button" action={resetAmounts}/>
+      <Button text="Reset" type="button" action={resetAmounts}/>
+    </div>
 
     <form onSubmit={handleSubmit}>
       <TextFormControl
