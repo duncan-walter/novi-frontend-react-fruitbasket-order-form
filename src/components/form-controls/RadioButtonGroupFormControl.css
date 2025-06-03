@@ -1,0 +1,15 @@
+.form-control fieldset {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1em;
+}
+
+.form-control fieldset div {
+    display: flex;
+    align-items: center;
+}
+
+.form-control fieldset label {
+    padding: 0 1em;
+}
