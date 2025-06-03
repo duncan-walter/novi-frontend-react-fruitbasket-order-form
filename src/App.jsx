@@ -78,7 +78,7 @@ function App() {
   return (<>
     <h1>Fruitmand bezorgservice</h1>
 
-    <div className="fruit-counters">
+    <div className="fruit-counters container">
       <FruitCounter
         title="🍓 Aardbeien"
         state={fruitBasketState.strawBerry}
@@ -110,74 +110,76 @@ function App() {
       <Button text="Reset" type="button" action={resetFruitBasket}/>
     </div>
 
-    <form onSubmit={handleSubmit}>
-      <TextFormControl
-        label="Voornaam"
-        name="firstName"
-        state={formState.firstName}
-        setState={handleFormChange}
-      />
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <TextFormControl
+            label="Voornaam"
+            name="firstName"
+            state={formState.firstName}
+            setState={handleFormChange}
+        />
 
-      <TextFormControl
-        label="Achternaam"
-        name="lastName"
-        state={formState.lastName}
-        setState={handleFormChange}
-      />
+        <TextFormControl
+            label="Achternaam"
+            name="lastName"
+            state={formState.lastName}
+            setState={handleFormChange}
+        />
 
-      <TextFormControl
-        label="Leeftijd"
-        name="age"
-        state={formState.age}
-        setState={handleFormChange}
-      />
+        <TextFormControl
+            label="Leeftijd"
+            name="age"
+            state={formState.age}
+            setState={handleFormChange}
+        />
 
-      <TextFormControl
-        label="Postcode"
-        name="zipcode"
-        state={formState.zipcode}
-        setState={handleFormChange}
-      />
+        <TextFormControl
+            label="Postcode"
+            name="zipcode"
+            state={formState.zipcode}
+            setState={handleFormChange}
+        />
 
-      <SelectFormControl
-        label="Bezorgfrequentie"
-        name="deliveryFrequency"
-        state={formState.deliveryFrequency}
-        setState={handleFormChange}
-        options={[
-          {value: "every-week", label: "Iedere week"},
-          {value: "every-other-week", label: "Om de week"},
-          {value: "every-month", label: "Iedere maand"}
-        ]}
-      />
+        <SelectFormControl
+            label="Bezorgfrequentie"
+            name="deliveryFrequency"
+            state={formState.deliveryFrequency}
+            setState={handleFormChange}
+            options={[
+              {value: "every-week", label: "Iedere week"},
+              {value: "every-other-week", label: "Om de week"},
+              {value: "every-month", label: "Iedere maand"}
+            ]}
+        />
 
-      <RadioButtonGroupFormControl
-        label="Bezorgmoment"
-        name="deliveryWindow"
-        state={formState.deliveryWindow}
-        setState={handleFormChange}
-        options={[
-          {id: "day-time", value: "day-time", label: "Overdag"},
-          {id: "night-time", value: "night-time", label: "'s Avonds"},
-        ]}
-      />
+        <RadioButtonGroupFormControl
+            label="Bezorgmoment"
+            name="deliveryWindow"
+            state={formState.deliveryWindow}
+            setState={handleFormChange}
+            options={[
+              {id: "day-time", value: "day-time", label: "Overdag"},
+              {id: "night-time", value: "night-time", label: "'s Avonds"},
+            ]}
+        />
 
-      <TextareaFormControl
-        label="Opmerking"
-        name="remarks"
-        state={formState.remarks}
-        setState={handleFormChange}
-      />
+        <TextareaFormControl
+            label="Opmerking"
+            name="remarks"
+            state={formState.remarks}
+            setState={handleFormChange}
+        />
 
-      <CheckboxFormControl
-        label="Ik ga akkoord met de voorwaarden"
-        name="consent"
-        state={formState.consent}
-        setState={handleFormChange}
-      />
+        <CheckboxFormControl
+            label="Ik ga akkoord met de voorwaarden"
+            name="consent"
+            state={formState.consent}
+            setState={handleFormChange}
+        />
 
-      <Button text="Verzend" type="submit"/>
-    </form>
+        <Button text="Verzend" type="submit"/>
+      </form>
+    </div>
   </>);
 }
 

@@ -17,38 +17,38 @@ button {
     font-family: inherit;
 }
 
-.fruit-counters {
+.container {
     width: 500px;
+    padding: 2em;
+}
+
+.fruit-counters {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    margin: 0 2em;
-}
-
-.fruit-counters > * {
-    width: 500px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    width: 500px;
-    margin: 5em 2em;
 }
 
 .form-control {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .form-control label {
     flex-basis: 200px;
 }
 
-.form-control input:not([type="checkbox"]), select, textarea {
-    flex-basis: 300px;
+select,
+textarea,
+.form-control input:not([type="checkbox"]) {
+    width: 100%;
 }
 
 .form-control input[type="checkbox"] {
