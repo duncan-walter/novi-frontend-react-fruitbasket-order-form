@@ -107,7 +107,7 @@ function App() {
         name="kiwi"
       />
 
-      <Button text="Reset" type="button" action={resetFruitBasket}/>
+      <Button text="Reset" type="button" handleClick={resetFruitBasket}/>
     </div>
 
     <div className="container">

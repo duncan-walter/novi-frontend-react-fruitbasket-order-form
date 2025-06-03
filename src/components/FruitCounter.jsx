@@ -27,9 +27,9 @@ function FruitCounter({title, state, setState, name}) {
     <div className={state > minimumAmount ? 'fruit-counter fruit-counter-active' : 'fruit-counter'}>
       <span className="fruit-counter-title">{title}</span>
       <div className="fruit-counter-controls">
-        <Button text="-" type="button" action={decreaseFruitAmount}/>
+        <Button text="-" type="button" handleClick={decreaseFruitAmount}/>
         <span className="fruit-counter-amount">{state}</span>
-        <Button text="+" type="button" action={increaseFruitAmount}/>
+        <Button text="+" type="button" handleClick={increaseFruitAmount}/>
       </div>
     </div>
   );
