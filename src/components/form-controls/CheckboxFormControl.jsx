@@ -1,10 +1,6 @@
 import './CheckboxFormControl.css';
 
 function CheckboxFormControl({label, name, state, setState}) {
-  function handleOnChange(e) {
-    setState(e);
-  }
-
   return (<>
     <div className="form-control">
       <input
@@ -12,7 +8,7 @@ function CheckboxFormControl({label, name, state, setState}) {
         name={name}
         id={name}
         checked={state}
-        onChange={handleOnChange}/>
+        onChange={setState}/>
       <label htmlFor={name}>{label}</label>
     </div>
   </>);

@@ -1,10 +1,6 @@
 import './TextFormControl.css';
 
 function SelectFormControl({label, name, state, setState, options}) {
-  function handleOnChange(e) {
-    setState(e);
-  }
-
   return (<>
     <div className="form-control">
       <label htmlFor={name}>{label}:</label>
@@ -12,7 +8,7 @@ function SelectFormControl({label, name, state, setState, options}) {
         name={name}
         id={name}
         value={state}
-        onChange={handleOnChange}
+        onChange={setState}
       >
         {options.map(option => {
           return (

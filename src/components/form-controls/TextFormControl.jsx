@@ -1,10 +1,6 @@
 import './TextFormControl.css';
 
 function TextFormControl({label, name, state, setState}) {
-  function handleOnChange(e) {
-    setState(e);
-  }
-
   return (<>
     <div className="form-control">
       <label htmlFor={name}>{label}:</label>
@@ -13,7 +9,7 @@ function TextFormControl({label, name, state, setState}) {
         name={name}
         id={name}
         value={state}
-        onChange={handleOnChange}/>
+        onChange={setState}/>
     </div>
   </>);
 }

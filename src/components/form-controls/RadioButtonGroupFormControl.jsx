@@ -1,10 +1,6 @@
 import './RadioButtonGroupFormControl.css';
 
 function RadioButtonGroupFormControl({label, name, state, setState, options}) {
-  function handleOnChange(e) {
-    setState(e);
-  }
-
   return (<>
     <div className="form-control">
       <fieldset>
@@ -20,7 +16,7 @@ function RadioButtonGroupFormControl({label, name, state, setState, options}) {
                 id={option.id}
                 value={option.value}
                 checked={state === option.value}
-                onChange={handleOnChange}
+                onChange={setState}
               />
             </div>
           )
