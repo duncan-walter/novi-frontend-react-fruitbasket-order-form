@@ -12,6 +12,24 @@ import TextareaFormControl from "./components/form-controls/TextareaFormControl.
 import CheckboxFormControl from "./components/form-controls/CheckboxFormControl.jsx";
 
 function App() {
+  const [fruitBasketState, setFruitBasketState] = useState({
+    strawBerry: 0,
+    banana: 0,
+    apple: 0,
+    kiwi: 0
+  });
+
+  const [formState, setFormState] = useState({
+    firstName: "",
+    lastName: "",
+    age: "",
+    zipcode: "",
+    deliveryFrequency: "every-week",
+    deliveryWindow: "day-time",
+    remarks: "",
+    consent: false
+  });
+
   function resetFruitBasket() {
     setFruitBasketState({
       strawBerry: 0,
@@ -57,23 +75,7 @@ function App() {
     console.log(`Consent: ${formState.consent}`);
   }
 
-  const [fruitBasketState, setFruitBasketState] = useState({
-    strawBerry: 0,
-    banana: 0,
-    apple: 0,
-    kiwi: 0
-  });
 
-  const [formState, setFormState] = useState({
-    firstName: "",
-    lastName: "",
-    age: "",
-    zipcode: "",
-    deliveryFrequency: "every-week",
-    deliveryWindow: "day-time",
-    remarks: "",
-    consent: false
-  });
 
   return (<>
     <h1>Fruitmand bezorgservice</h1>
