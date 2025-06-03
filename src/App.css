@@ -6,8 +6,15 @@
     padding: 0;
 }
 
-body, input, textarea, select, button {
+body {
     font-family: 'Poppins', sans-serif;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
 }
 
 .fruit-counters {
